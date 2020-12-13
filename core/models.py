@@ -5,6 +5,7 @@ from django.db import models
 # Create your models here.
 
 class RemindU(AbstractUser):
+    """ Модель собственного пользователя, логин по Email """
     USERNAME_FIELD = 'email'
     email = models.EmailField('Email address', unique=True)
     username = models.CharField('username', max_length=150, unique=True)

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5531dc0d-436f-4e54-beb4-7e96e2c21411" name="reminds" url="http://arhi-tect.ru">
+        <fileTransfer host="arhi-tect.ru" port="22" rootFolder="/home/Reminders" accessType="SFTP" username="root">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

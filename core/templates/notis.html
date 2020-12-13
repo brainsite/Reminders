@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма отправки</title>
+</head>
+<body>
+<div>
+    <form action="{% url 'create_schedule' %}" method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="save" type="submit">Send</button>
+
+    </form>
+<div>
+    <ul>
+    {% for x in notifi %}
+    <li>{{ x.date_notification }}</li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+</body>
+</html>

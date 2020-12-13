@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="reminds">
+  <component name="PublishConfigData" serverName="reminds" uploadOnCheckin="5531dc0d-436f-4e54-beb4-7e96e2c21411">
     <serverData>
       <paths name="reminds">
         <serverdata>
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="reminds" />
   </component>
 </project>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Reminders - планировщик задач</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/signin.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+  <div class="container">
+  <img class="mb-4" src="/static/img/scheduler.png" alt="">
+                <div class="row">
+                    <div class="col-md-6">
+
+ {% if user.is_authenticated %}
+                            <h3>Вы вошли как: <a href="/my_account">{{ user.username }}</a> / <a href="/logout">Выйти</a></h3>
+
+                        {% else %}
+     <div class="heading">
+                            <h2 class="title">ВХОД</h2>
+                            <p>Если у вас есть логин и пароль то можете войти.</p>
+                        </div><!-- End .heading -->
+                            <form action='.' method='post'>
+                            {% csrf_token %}
+                            <input type="email" class="form-control" placeholder="Email адрес" name="username" value="" id="username" required>
+                            <input type="password" class="form-control" placeholder="Введите пароль" name="password" value="" id="password" required>
+
+                            <div class="form-footer">
+                                <button type="submit" class="btn btn-lg btn-primary btn-block" name="login">ВОЙТИ</button>
+
+                            </div><!-- End .form-footer -->
+                        </form>
+                        {% endif %}
+
+                    </div><!-- End .col-md-6 -->
+
+                    <div class="col-md-6">
+                        <div class="heading">
+                            <h2 class="title">Регистрация нового пользователя</h2>
+                            <p>Зарегистрируйте нового пользователя что бы создавать задачи и напоминания.</p>
+                        </div><!-- End .heading -->
+
+                       <form action='.' method='post'>
+                            {% csrf_token %}
+
+<input type="email" class="form-control" placeholder="Email адрес" name="email" value="" required id="id_email">
+                            <input type="password" class="form-control" placeholder="Введите пароль" name="password1" required id="id_password1">
+<input type="password" class="form-control" placeholder="Подтвердите пароль" name="password2" required id="id_password2">
+<input class="form-control" type="text" placeholder="Ваш логин" name="username" required maxlength="30" id="id_username">
+    <h2 class="title mb-2">Дополнительная информация</h2>
+
+                            <input type="text" class="form-control" placeholder="Имя" name="first_name" maxlength="30" id="id_first_name">
+                            <input type="text" class="form-control" placeholder="Фамилия" name="last_name" maxlength="30" id="id_last_name">
+                            <div class="form-footer">
+                                <button type="submit" class="btn btn-lg btn-primary btn-block" name="register">Регистрация</button>
+
+                            </div><!-- End .form-footer -->
+      </form>
+                    </div><!-- End .col-md-6 -->
+                </div><!-- End .row -->
+            </div><!-- End .container -->
+
+  </body>
+</html>

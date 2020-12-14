@@ -32,6 +32,18 @@ def thanks(request):
 
 #### Register and LogIn
 
+def registry(request):
+    if 'register' in request.POST:
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(email=email, password=raw_password)
+            auth_login(request, user)
+            return redirect('/')
+    return render(request, 'registry.html')
+
 def login(request):
     if 'login' in request.POST:
         # c.update(csrf(request))
@@ -46,13 +58,4 @@ def login(request):
         else:
             # Отображение страницы с ошибкой
             return HttpResponseRedirect("/account/invalid/")
-    if 'register' in request.POST:
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            email = form.cleaned_data.get('email')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(email=email, password=raw_password)
-            auth_login(request, user)
-            return redirect('/')
-    return render(request, 'signin.html', {'formm': ''})
+    return render(request, 'signin.html')

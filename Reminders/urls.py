@@ -27,6 +27,7 @@ urlpatterns = [
 
     # Account Urls
     url(r'^login/', views.login, name='login'),
+    url(r'^registry/', views.registry, name='registry'),
     url(r'^logout/$', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     #url(r'^my_account/', views.my_account, name='my_account'),
 ]
